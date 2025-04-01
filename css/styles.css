@@ -1,0 +1,219 @@
+/* ===========================================
+   COMMON STYLES
+=========================================== */
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+nav.navbar {
+  margin-bottom: 0;
+}
+
+/* Hero Section (Common) */
+#hero {
+  background-color: #f8f9fa;
+  padding: 3rem 0;
+}
+#hero img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+#hero .hero-content {
+  text-align: center;
+}
+#hero h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+#hero p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+/* Sections */
+section {
+  padding: 60px 0;
+}
+section h2 {
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Service Cards */
+.service-card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+  background-color: #f8f9fa;
+  height: 350px; /* Altura fija para todas las tarjetas */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.service-card img.service-img {
+  width: 100%;
+  height: 150px; /* Altura fija para las imágenes */
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+/* Gallery */
+#gallery img {
+  width: 100%;
+  height: auto;
+}
+
+/* Testimonials */
+.testimonial {
+  font-style: italic;
+  border-left: 5px solid #ccc;
+  padding-left: 15px;
+  margin: 0 15px;
+}
+.testimonial footer {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Form Styles */
+form label {
+  font-weight: 600;
+}
+.captcha-label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Footer */
+footer {
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+footer .social-media a {
+  color: #333;
+  margin: 0 10px;
+  text-decoration: none;
+}
+footer .social-media a:hover {
+  color: #007bff;
+}
+
+/* ===========================================
+   MEDIA QUERIES (Responsive adjustments)
+=========================================== */
+@media (min-width: 992px) {
+  /* Centrar el último servicio cuando está solo en la fila */
+  .last-service {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Reducir padding en el hero para dispositivos pequeños */
+  #hero {
+    padding: 1rem 0;
+  }
+  /* Si en alguna versión el hero usa una tarjeta con imagen, limitar su altura */
+  #hero .card img {
+    max-height: 300px;
+    object-fit: cover;
+  }
+  #hero .hero-image {
+    max-height: 150px;  /* Ajusta este valor según lo que necesites */
+    object-fit: contain; /* Se asegura que se vea completo (sin recortes bruscos) */
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Convertir la fila de servicios en un contenedor horizontal scrollable */
+  #services .row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Suaviza el scroll en iOS */
+    padding-bottom: 1rem; /* Espacio para los indicadores, si se usa */
+  }
+  /* Cada tarjeta se muestra en línea con un ancho fijo */
+  #services .col-md-3 {
+    flex: 0 0 auto;
+    width: 80%; /* Ajusta este valor según tus necesidades */
+    margin-right: 10px;
+  }
+   /* Reduce el tamaño de la imagen del hero para mostrar solo el logo */
+   #hero .hero-image {
+    max-height: 150px;  /* Ajusta este valor según lo que necesites */
+    object-fit: contain; /* Se asegura que se vea completo (sin recortes bruscos) */
+    margin-bottom: 1rem;
+  }
+  body.version1 #hero {
+    /* Usamos los estilos comunes o podemos agregar ajustes específicos */
+    padding: 0 !important;
+    background-color: #f8f9fa;
+  }
+
+  
+}
+
+/* ===========================================
+   CONDITIONAL STYLES FOR VERSIONS
+   (Agrega la clase al <body> según la versión deseada)
+=========================================== */
+
+/* Version 1 - Estilo por defecto (ejemplo) */
+body.version1 #hero {
+  /* Usamos los estilos comunes o podemos agregar ajustes específicos */
+  padding: 3rem 0;
+  background-color: #f8f9fa;
+}
+
+body.version1 #hero .card img {
+  max-height: 450px;  /* Ajusta este valor según lo deseado */
+  object-fit: scale-down;
+}
+
+/* Version 2 - Ejemplo de variación (menor padding y fondo diferente) */
+body.version2 #hero {
+  position: relative;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+      height: 100vh; /* Altura completa de la ventana */
+}
+
+/* Ejemplo condicional para la sección de Services en versión 2 (scroll horizontal en móviles) */
+body.version2 #hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* La imagen cubre el contenedor sin distorsionarse */
+  display: block;
+}
+
+body.version2 #hero .hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 600px;
+  z-index: 2;
+}
+
+body.version1  #gallery .gallery-thumb {
+  max-height: 300px; /* Adjust the thumbnail height as needed */
+  object-fit: cover;
+  cursor: pointer;
+}
