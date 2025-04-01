@@ -14,6 +14,18 @@ nav.navbar {
   margin-bottom: 0;
 }
 
+/* Estilo base: íconos siempre oscuros al cargar */
+.icon-hover i {
+  color: #212529 !important; /* fuerza el color oscuro inicial */
+  transition: color 0.3s ease;
+}
+
+/* Al pasar el mouse o hacer foco (touch), se pone azul */
+.icon-hover:hover i,
+.icon-hover:focus i {
+  color: #0d6efd !important;
+}
+
 /* Hero Section (Common) */
 #hero {
   background-color: #f8f9fa;
@@ -218,12 +230,3 @@ body.version1  #gallery .gallery-thumb {
   cursor: pointer;
 }
 
-.icon-hover i {
-  color: #212529; /* color inicial (oscuro) */
-  transition: color 0.3s ease;
-}
-
-.icon-hover:hover i,
-.icon-hover:focus i {
-  color: #0d6efd; /* azul Bootstrap al pasar el mouse o enfocar */
-}
