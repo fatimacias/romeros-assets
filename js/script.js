@@ -20,6 +20,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function initializeAddressAutocomplete() {
+    if (addressInput && window.google && google.maps && google.maps.places) {
+      const autocomplete = new google.maps.places.Autocomplete(addressInput, {
+        types: ['address'],
+        componentRestrictions: { country: 'us' }
+      });
+
+      autocomplete.addListener('place_changed', () => {
+        const place = autocomplete.getPlace();
+        console.log("Dirección seleccionada:", place.formatted_address);
+      });
+    }
+  }
+
+  initializeAddressAutocomplete(); // ← se ejecuta solo si Google está presente
+
   // Envío del formulario
   if (form) {
     const accessKeyMeta = document.querySelector('meta[name="web3forms-access-key"]');
